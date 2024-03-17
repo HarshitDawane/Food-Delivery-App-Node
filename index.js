@@ -14,13 +14,10 @@ sequelize.authenticate()
   .then(() => console.log('Database connected'))
   .catch((err) => console.error('Unable to connect to the database:', err));
 
-sequelize.sync()
-  .then(() => console.log('DB syncs'))
-  .catch((err) => console.error('Unable to Sync to the database:', err));
 // Routes
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/delivery', deliveryRoutes);
 
 // Start server
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => console.log('Server running on port', PORT));

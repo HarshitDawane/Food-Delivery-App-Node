@@ -1,4 +1,7 @@
 const db = require('../database');
+const Item = require("../models/items");
+const Pricing = require("../models/pricing");
+const Organization = require("../models/organization");
 
 const calculatePrice = async (zone, id, totalDistance, type) => {
 
@@ -16,26 +19,27 @@ const calculatePrice = async (zone, id, totalDistance, type) => {
     const results = await db.query(pricingInfo, { type: db.QueryTypes.SELECT });
 
     let totalPrice = 0;
-    if (results) {
-      if (totalDistance > results[0].base_distance_in_km) {
-        totalPrice = ((totalDistance - results[0].base_distance_in_km) * results[0].km_price) + results[0].fix_price;
-        console.log('1 value:', totalDistance - results[0].base_distance_in_km);
-        console.log('2 value:', (totalDistance - results[0].base_distance_in_km) * results[0].km_price);
-        console.log('3 value:', ((totalDistance - results[0].base_distance_in_km) * results[0].km_price) + results[0].fix_price);
+    if (results && results.length > 0) {
+      if (totalDistance > results[0]?.base_distance_in_km) {
+        totalPrice = (
+            (totalDistance - results[0]?.base_distance_in_km) * results[0]?.km_price
+          ) + results[0]?.fix_price;
       } else {
-        totalPrice = results[0].fix_price;
+        totalPrice = results[0]?.fix_price;
       }
 
       const finalResult = {
         'Total Price': Math.round(totalPrice * 100),
-        Organisation: results[0].id,
-        Zone: results[0].zone,
+        Organisation: results[0]?.id,
+        Zone: results[0]?.zone,
         'Item Type': type,
       };
       return finalResult;
     }
     return 'Data not found';
   } catch (error) {
+    console.log(error);
+    return 'Error executing SQL query';
     throw new Error('Error executing SQL query', error);
   }
 };

@@ -17,7 +17,6 @@ const Item = sequelize.define('item', {
 });
 
 try {
-  // Items.hasMany(Pricing);
   Item.sync();
 } catch (error) {
   // eslint-disable-next-line no-extra-semi
