@@ -1,0 +1,21 @@
+{
+  "env": {
+    "mocha": true
+  },
+  // "ignorePatterns": ["dist/", "Client/"],
+  "extends": ["eslint:recommended", "airbnb", "airbnb/hooks"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
+    "import/extensions": 0,
+    "no-console": "off",
+    "no-process-exit": "off",
+    "linebreak-style": 0,
+    "no-else-return": 0,
+    "prefer-destructuring": 0,
+    "consistent-return": 0
+  }
+}
