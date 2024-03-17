@@ -15,6 +15,9 @@ sequelize.authenticate()
   .catch((err) => console.error('Unable to connect to the database:', err));
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('Hello, Now you can use the app.');
+});
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/delivery', deliveryRoutes);
 

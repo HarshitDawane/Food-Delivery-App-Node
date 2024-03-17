@@ -10,7 +10,7 @@ Our Food Delivery App Node.js Backend provides a powerful REST API for calculati
 To run the project locally, follow these steps:
 
 Clone the repository:
-git clone https://github.com/your-username/food-delivery-app-node.git
+git clone https://github.com/HarshitDawane/Food-Delivery-App-Node.git
 
 Navigate to the project directory:
 cd food-delivery-app-node
@@ -59,6 +59,9 @@ Pricing:
 }
 Database Schema:
 Use PostgreSQL.
+
+Swagger:
+If you are using it on localhost: http://localhost:3000/api-docs/#/
 
 📚 Documentation
 For an in-depth understanding of Food Delivery capabilities and how to maximize its potential in your NodeJs base Food Delivery App, please refer to our comprehensive documentation.
